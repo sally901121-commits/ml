@@ -1,17 +1,24 @@
-# ML
+# CSV Graph Plotter
 
-A machine learning repository for building, training, and deploying ML models.
+A lightweight tool to quickly generate graphs from CSV files for experiment analysis and visualization.
 
 ## Overview
 
-This project contains machine learning models and utilities for [describe your project purpose].
+This project provides a simple and fast way to visualize data from CSV files. Perfect for experimental work, data analysis, and quick visualizations without the need for complex code.
+
+**Main Features:**
+- Load CSV files with a single command
+- Generate plots instantly
+- Support for multiple chart types (line, scatter, bar, histogram, etc.)
+- Customizable graph styling
+- Export plots as images
 
 ## Getting Started
 
 ### Prerequisites
 
 - Python 3.8+
-- pip or conda
+- pip
 
 ### Installation
 
@@ -21,54 +28,87 @@ cd ml
 pip install -r requirements.txt
 ```
 
-## Project Structure
+### Dependencies
 
+Common libraries you'll need:
 ```
-ml/
-├── data/              # Dataset files
-├── models/            # Pre-trained models
-├── notebooks/         # Jupyter notebooks for exploration
-├── src/               # Source code
-│   ├── train.py      # Training scripts
-│   ├── evaluate.py   # Evaluation scripts
-│   └── utils.py      # Utility functions
-├── tests/             # Unit tests
-├── requirements.txt   # Project dependencies
-└── README.md          # This file
+pandas>=1.3.0
+matplotlib>=3.4.0
+numpy>=1.21.0
 ```
 
 ## Usage
 
-### Training
+### Basic Usage
 
 ```bash
-python src/train.py --config config.yaml
+python plot.py --csv data.csv
 ```
 
-### Evaluation
+### Advanced Usage
 
 ```bash
-python src/evaluate.py --model_path models/best_model.pkl
+# Plot specific columns
+python plot.py --csv data.csv --x column_name --y column_name
+
+# Change plot type
+python plot.py --csv data.csv --type scatter
+
+# Save output
+python plot.py --csv data.csv --output graph.png
+
+# Add title and labels
+python plot.py --csv data.csv --title "My Experiment" --xlabel "Time" --ylabel "Value"
 ```
 
-## Results
+## Supported Plot Types
 
-Document your model performance, metrics, and findings here.
+- `line` - Line plot (default)
+- `scatter` - Scatter plot
+- `bar` - Bar chart
+- `hist` - Histogram
+- `box` - Box plot
+
+## Project Structure
+
+```
+ml/
+├── plot.py            # Main plotting script
+├── utils.py           # Utility functions for CSV handling
+├── requirements.txt   # Project dependencies
+├── sample_data/       # Example CSV files
+└── README.md          # This file
+```
+
+## Example
+
+### Sample CSV Format
+```
+time,temperature,humidity
+1,25.3,60
+2,26.1,62
+3,25.8,61
+```
+
+### Generate Plot
+```bash
+python plot.py --csv sample_data/experiment.csv --x time --y temperature --type line --output results.png
+```
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps:
+Contributions welcome! Please:
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
 5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT License - see LICENSE file for details
 
 ## Contact
 
-For questions or inquiries, please reach out to [your contact information].
+Questions or suggestions? Feel free to reach out!
