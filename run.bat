@@ -23,12 +23,6 @@ echo.
 
 REM Check if required packages are installed
 echo Checking required packages...
-pip show tkinterdnd >nul 2>&1
-if errorlevel 1 (
-    echo Installing tkinterdnd...
-    pip install tkinterdnd
-)
-
 pip show pandas >nul 2>&1
 if errorlevel 1 (
     echo Installing pandas...
@@ -39,6 +33,12 @@ pip show matplotlib >nul 2>&1
 if errorlevel 1 (
     echo Installing matplotlib...
     pip install matplotlib
+)
+
+pip show numpy >nul 2>&1
+if errorlevel 1 (
+    echo Installing numpy...
+    pip install numpy
 )
 
 echo.
