@@ -1,114 +1,37 @@
-# CSV Graph Plotter
+# Spectrum Plotter (光譜數據分析工具)
 
-A lightweight tool to quickly generate graphs from CSV files for experiment analysis and visualization.
+A lightweight GUI desktop application for batch analyzing, visualizing, and exporting optical spectrum data from CSV files.
 
-## Overview
+一個輕量級的桌面圖形化光譜數據分析工具，支援批次載入光譜 CSV 檔案、多光譜疊圖可視化與高解析度圖表匯出。
 
-This project provides a simple and fast way to visualize data from CSV files. Perfect for experimental work, data analysis, and quick visualizations without the need for complex code.
+---
 
-**Main Features:**
-- Load CSV files with a single command
-- Generate plots instantly
-- Support for multiple chart types (line, scatter, bar, histogram, etc.)
-- Customizable graph styling
-- Export plots as images
+## 🌟 Key Features (主要功能)
 
-## Getting Started
+- **Multi-File Batch Loading (批次檔案載入)**: 支援同時選取並載入多個光譜 CSV 檔案進行疊圖比對。
+- **Automated Data Cleaning (自動資料解析)**: 自動略過前置儀器設定資訊（自動解析第 28 行起之資料），過濾無效與遺漏數值。
+- **Interactive Visualization (互動式光譜繪圖)**:
+  - 自動為不同光譜曲線分配對比色與獨立標籤（圖例）。
+  - 固定波長範圍：`350 ~ 1020 nm`。
+  - 固定強度範圍：`0 ~ 60000 cps`。
+- **High-Resolution Export (高畫質圖表匯出)**: 支援匯出 300 DPI 印刷級圖片（支援 `.png`、`.pdf` 格式）。
+- **File Management (檔案清單管理)**: 支援單筆移除選取項目或一鍵清空待繪清單。
 
-### Prerequisites
+---
 
-- Python 3.8+
-- pip
+## 📋 Prerequisites & Dependencies (環境依賴)
 
-### Installation
+- **Python**: 3.8 或以上版本
+- **Required Libraries**:
+  - `pandas` (資料讀取與數值清理)
+  - `matplotlib` (圖表繪製與畫布嵌入)
+  - `tkinter` (Python 內建標準 GUI 庫)
 
+---
+
+## 🚀 Quick Start (快速開始)
+
+### 1. 安裝必要套件
+請在終端機中執行：
 ```bash
-git clone https://github.com/sally901121-commits/ml.git
-cd ml
-pip install -r requirements.txt
-```
-
-### Dependencies
-
-Common libraries you'll need:
-```
-pandas>=1.3.0
-matplotlib>=3.4.0
-numpy>=1.21.0
-```
-
-## Usage
-
-### Basic Usage
-
-```bash
-python plot.py --csv data.csv
-```
-
-### Advanced Usage
-
-```bash
-# Plot specific columns
-python plot.py --csv data.csv --x column_name --y column_name
-
-# Change plot type
-python plot.py --csv data.csv --type scatter
-
-# Save output
-python plot.py --csv data.csv --output graph.png
-
-# Add title and labels
-python plot.py --csv data.csv --title "My Experiment" --xlabel "Time" --ylabel "Value"
-```
-
-## Supported Plot Types
-
-- `line` - Line plot (default)
-- `scatter` - Scatter plot
-- `bar` - Bar chart
-- `hist` - Histogram
-- `box` - Box plot
-
-## Project Structure
-
-```
-ml/
-├── plot.py            # Main plotting script
-├── utils.py           # Utility functions for CSV handling
-├── requirements.txt   # Project dependencies
-├── sample_data/       # Example CSV files
-└── README.md          # This file
-```
-
-## Example
-
-### Sample CSV Format
-```
-time,temperature,humidity
-1,25.3,60
-2,26.1,62
-3,25.8,61
-```
-
-### Generate Plot
-```bash
-python plot.py --csv sample_data/experiment.csv --x time --y temperature --type line --output results.png
-```
-
-## Contributing
-
-Contributions welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/new-feature`)
-3. Commit your changes (`git commit -m 'Add new feature'`)
-4. Push to the branch (`git push origin feature/new-feature`)
-5. Open a Pull Request
-
-## License
-
-MIT License - see LICENSE file for details
-
-## Contact
-
-Questions or suggestions? Feel free to reach out!
+pip install pandas matplotlib
